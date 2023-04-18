@@ -1,18 +1,23 @@
-import { Component, Input } from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import { NgIconComponent } from "@ng-icons/core";
 import { NgClass } from "@angular/common";
 
 type LabelType = 'Income' | 'Expense' | 'Current Balance';
+interface CardModel {
+  name: LabelType,
+  color: string
+}
+
 @Component({
   selector: 'app-card',
   imports: [NgIconComponent, NgClass],
   template: `
     <div class="bg-white p-2 w-full rounded-lg">
-      <label class="font-bold">{{label}}</label>
+      <label class="font-bold">{{ label }}</label>
       <div>
         <span
           class="font-bold text-5xl"
-          [ngClass]=""
+          [ngClass]="className"
         >
           R$ 1500.00
         </span>
@@ -23,12 +28,23 @@ type LabelType = 'Income' | 'Expense' | 'Current Balance';
   styles: [``]
 })
 
-export class CardComponent {
-  @Input() label: LabelType = 'Expense'
+export class CardComponent implements  OnInit {
+  @Input() label: LabelType = 'Expense';
 
-  cardType = {
-    expense: 'text-red-800',
-    income: 'text-emerald-800',
-    current_balance: 'text-zinc-200'
+  className = '';
+  cardType: CardModel[] = [
+    { name: 'Expense', color: 'text-red-800' },
+    { name: 'Income', color: 'text-emerald-800'},
+    { name: 'Current Balance', color: 'text-zinc-200'}
+  ]
+
+  ngOnInit() {
+    this.setColorClass();
+  }
+
+  setColorClass() {
+    this.cardType.map((type: CardModel) => {
+      if(type.name === this.label) this.className = type.color
+    });
   }
 }
