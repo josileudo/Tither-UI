@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import {NgIconComponent, provideIcons} from "@ng-icons/core";
-import {featherAirplay} from "@ng-icons/feather-icons";
+import { NgIconComponent, provideIcons } from "@ng-icons/core";
+import { featherAirplay } from "@ng-icons/feather-icons";
 import { heroHandRaised } from '@ng-icons/heroicons/outline'
 
 @Component({
@@ -10,7 +10,7 @@ import { heroHandRaised } from '@ng-icons/heroicons/outline'
   template: `
     <header class="relative bg-emerald-800">
       <div class="max-w-8xl mx-auto">
-        <div class="flex flex-row items-center py-4 mx-4 ">
+        <div class="flex flex-row items-center py-4 px-4">
           <ng-icon class="text-white text-2xl" name="heroHandRaised" />
           <span class="text-white font-bold">TITHER</span>
         </div>
