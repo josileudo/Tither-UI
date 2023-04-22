@@ -9,6 +9,9 @@ import { NgClass } from "@angular/common";
     <div class="bg-white justify-between p-4 w-full rounded-lg flex items-center">
       <div class="flex flex-col">
         <label class="text-zinc-400 mb-2">{{ label }}</label>
+        <h1 class="text-3xl font-bold underline">
+          Hello world!
+        </h1>
         <span
           class="font-bold text-4xl"
           [ngClass]="colorValue"
