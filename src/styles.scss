@@ -1,13 +1,25 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* You can add global styles to this file, and also import other style files */
+@import 'primeng/resources/themes/lara-light-blue/theme.css';
+@import 'primeng/resources/themes/lara-light-blue/theme.css';
+@import 'primeng/resources/primeng.css';
+@import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   -webkit-font-smoothing: antialiased;
 }
 
-body, input, textarea, button {
-  font-family: "Inter", sans-serif;
+body,
+input,
+textarea,
+button {
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 1rem;
 }

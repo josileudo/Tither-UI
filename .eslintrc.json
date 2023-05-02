@@ -1,0 +1,205 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["tsconfig.json", "e2e/tsconfig.json"],
+    "createDefaultProgram": true
+  },
+  "ignorePatterns": ["projects/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:import/typescript",
+        "plugin:import/errors",
+        "plugin:import/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+        // "plugin:prettier/recommended"
+      ],
+      "env": {
+        "es6": true
+      },
+      "plugins": ["@angular-eslint", "unused-imports", "import"],
+      "rules": {
+        "@angular-eslint/no-attribute-decorator": "error",
+        "@angular-eslint/no-conflicting-lifecycle": "off",
+        "@angular-eslint/no-forward-ref": "off",
+        "@angular-eslint/no-host-metadata-property": "off",
+        "@angular-eslint/no-lifecycle-call": "off",
+        "@angular-eslint/no-pipe-impure": "error",
+        "@angular-eslint/prefer-output-readonly": "off",
+        "@angular-eslint/use-component-selector": "off",
+        "@angular-eslint/use-component-view-encapsulation": "off",
+        "@typescript-eslint/array-type": [
+          "error",
+          {
+            "default": "array-simple"
+          }
+        ],
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/no-for-in-array": "error",
+        "@typescript-eslint/semi": ["error", "always"],
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/no-inferrable-types": [
+          "error",
+          {
+            "ignoreParameters": true,
+            "ignoreProperties": true
+          }
+        ],
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-this-alias": "error",
+        "@typescript-eslint/no-unused-expressions": "error",
+        "@typescript-eslint/no-namespace": "warn",
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true,
+            "allowConciseArrowFunctionExpressionsStartingWithVoid": true
+          }
+        ],
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "import/no-duplicates": "error",
+        "import/no-unused-modules": "error",
+        "import/no-unassigned-import": "error",
+        "import/no-unresolved": [
+          "error",
+          {
+            "ignore": ["^@shared", "^@quote", "^@solution"]
+          }
+        ],
+        "no-bitwise": "off",
+        "no-duplicate-imports": "error",
+        "no-debugger": "error",
+        "no-invalid-this": "off",
+        "no-irregular-whitespace": "error",
+        "no-magic-numbers": "off",
+        "no-multiple-empty-lines": "error",
+        "no-redeclare": "off",
+        "no-underscore-dangle": "off",
+        "no-useless-escape": "warn",
+        "no-sparse-arrays": "error",
+        "no-template-curly-in-string": "off",
+        "no-var": "error",
+        "no-prototype-builtins": "warn",
+        "prefer-object-spread": "error",
+        "prefer-template": "error",
+        "prefer-const": "error",
+        "yoda": "error",
+        "unused-imports/no-unused-vars": [
+          "error",
+          {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "after-used",
+            "argsIgnorePattern": "^_"
+          }
+        ],
+        "import/namespace": ["warn", { "allowComputed": true }],
+        "import/order": [
+          "error",
+          {
+            "newlines-between": "always",
+            "groups": [
+              "internal",
+              "unknown",
+              "external",
+              "builtin",
+              ["parent", "sibling", "index"]
+            ],
+            "pathGroups": [
+              {
+                "pattern": "rxjs",
+                "group": "unknown"
+              },
+              {
+                "pattern": "rxjs/**",
+                "group": "unknown"
+              },
+              {
+                "pattern": "@internal-library",
+                "group": "builtin"
+              },
+              {
+                "pattern": "@shared/**",
+                "group": "parent"
+              },
+              {
+                "pattern": "@quote/**",
+                "group": "parent"
+              },
+              {
+                "pattern": "@solution/**",
+                "group": "parent"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["type", "object"]
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": [
+              "app",
+              "search",
+              "dynamic",
+              "ngx",
+              "solution",
+              "quote"
+            ],
+            "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/member-ordering": 0,
+        "@typescript-eslint/naming-convention": 0
+      },
+      "settings": {
+        "import/internal-regex": "@angular/",
+        "import/external-module-folders": ["node_modules"],
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".spec.ts"]
+        },
+        "import/resolver": {
+          "alias": true,
+          "typescript": {
+            "alwaysTryTypes": true,
+            "project": [
+              "tsconfig.json",
+              "projects/first-application/e2e/tsconfig.json",
+              "projects/second-application/e2e/tsconfig.json"
+            ]
+          },
+          "node": {
+            "extensions": [".ts", ".spec.ts"]
+          }
+        }
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        "max-len": [
+          "error",
+          {
+            "code": 120,
+            "tabWidth": 4,
+            "ignoreUrls": true
+          }
+        ]
+      }
+    }
+  ]
+}

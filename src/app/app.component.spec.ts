@@ -1,12 +1,9 @@
-import { TestBed } from '@angular/core/testing';
+import { describe, expect, it } from 'vitest';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+  it('Should', () => {
+    expect(AppComponent).toBeDefined();
   });
 });

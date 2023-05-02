@@ -1,0 +1,6 @@
+build
+e2e
+node_modules
+manifests
+coverage
+.eslintrc.json

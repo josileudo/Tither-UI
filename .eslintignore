@@ -1,0 +1,13 @@
+node_modules
+coverage
+.eslintrc.json
+
+main.ts
+test.ts
+polyfills.ts
+
+# UTILS FILES
+window.reference.ts
+url-helper.ts
+right-map.ts
+permission-map.ts

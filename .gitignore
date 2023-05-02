@@ -22,7 +22,7 @@ package-lock.json
 *.sublime-workspace
 
 # Visual Studio Code
-.vscode/*
+.vscode/tasks.json
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
