@@ -1,18 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'primeng/resources/themes/lara-light-blue/theme.css';
-@import 'primeng/resources/themes/lara-light-blue/theme.css';
+// INITIAL PRIMENG CONFIGS
 @import 'primeng/resources/primeng.css';
 @import 'primeicons/primeicons.css';
 @import 'primeflex/primeflex.scss';
 
+// CUSTOM THEMES IMPORTS
+@import 'assets/theme/sizes';
+
+// PROJECTS CONFIG TO DEFAULT
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  background-color: var(--surface-ground);
+  color: var(--text-color);
+  min-height: 100%;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body,

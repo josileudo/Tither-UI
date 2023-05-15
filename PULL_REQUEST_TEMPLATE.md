@@ -1,37 +1,39 @@
-Mirror the type definition of EntityCollectionServiceBase.add on EntityServerCommands.add.
+### Description
 
-Closes EntityServerCommands.add does not allow optional id #3847
+- Config code formatters, (PrimeNG, PrimeFlex and PrimeIcons) and vitest added
 
-PR Checklist
+### Have a style changes?
 
-Please check if your PR fulfills the following requirements:
+Paste your print screen or a gif
 
-The commit message follows our guidelines: https://github.com/ngrx/platform/blob/master/CONTRIBUTING.md#commit
-Tests for the changes have been added (for bug fixes / features)
-Documentation has been added / updated (for bug fixes / features)
-PR Type
+### PR Checklist
 
-What kind of change does this PR introduce?
+#### Please check if your PR fulfills the following requirements:
 
-[x] Bugfix
-[ ] Feature
-[ ] Code style update (formatting, local variables)
-[ ] Refactoring (no functional changes, no api changes)
-[ ] Build related changes
-[ ] CI related changes
-[ ] Documentation content changes
-[ ] Other... Please describe:
-What is the current behavior?
+Our project last used karma and jasmine, but now we used to unit test `Vitest`.
 
-EntityServerCommands.add() allows only full entities.
+#### What kind of change does this PR introduce?
 
-Closes #3847
+- [ ] Bugfix
+- [x] Feature
+- [ ] Code style update (formatting, local variables)
+- [ ] Refactoring (no functional changes, no api changes)
+- [ ] Build related changes
+- [ ] CI related changes
+- [ ] Documentation content changes
+- [ ] Other... Please describe:
 
-What is the new behavior?
+#### What is the current behavior?
+
+code formatters, unit test framework and style guide
+
+Closes #3
+
+#### What is the new behavior?
 
 EntityServerCommands.add() allows partial entities if non-optimistic, just like EntityCollectionServiceBase.add().
 
-Does this PR introduce a breaking change?
+#### Does this PR introduce a breaking change?
 
-[ ] Yes
-[x] No
+- [ ] Yes
+- [x] No

@@ -24,7 +24,19 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              {
+                "input": "src/assets/theme/light-theme.scss",
+                "bundleName": "saga-green",
+                "inject": false
+              },
+              {
+                "input": "src/assets/theme/dark-theme.scss",
+                "bundleName": "vela-green",
+                "inject": false
+              }
+            ],
             "scripts": []
           },
           "configurations": {

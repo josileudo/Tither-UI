@@ -1,6 +1,7 @@
 node_modules
 coverage
 .eslintrc.json
+setup.jest.ts
 
 main.ts
 test.ts
