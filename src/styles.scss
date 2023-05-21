@@ -4,7 +4,8 @@
 @import 'primeflex/primeflex.scss';
 
 // CUSTOM THEMES IMPORTS
-@import 'assets/theme/sizes';
+@import 'assets/theme/_sizes';
+@import 'assets/theme/_classes';
 
 // PROJECTS CONFIG TO DEFAULT
 * {
@@ -33,3 +34,4 @@ button {
   font-weight: 400;
   font-size: 1rem;
 }
+

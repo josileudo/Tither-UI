@@ -16,13 +16,13 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
-        // "plugin:prettier/recommended"
       ],
       "env": {
         "es6": true
       },
       "plugins": ["@angular-eslint", "unused-imports", "import"],
       "rules": {
+        "@angular-eslint/no-input-rename": "off",
         "@angular-eslint/no-attribute-decorator": "error",
         "@angular-eslint/no-conflicting-lifecycle": "off",
         "@angular-eslint/no-forward-ref": "off",
@@ -119,22 +119,6 @@
               {
                 "pattern": "rxjs/**",
                 "group": "unknown"
-              },
-              {
-                "pattern": "@internal-library",
-                "group": "builtin"
-              },
-              {
-                "pattern": "@shared/**",
-                "group": "parent"
-              },
-              {
-                "pattern": "@quote/**",
-                "group": "parent"
-              },
-              {
-                "pattern": "@solution/**",
-                "group": "parent"
               }
             ],
             "pathGroupsExcludedImportTypes": ["type", "object"]
@@ -153,13 +137,18 @@
             "type": "element",
             "prefix": [
               "app",
-              "search",
-              "dynamic",
-              "ngx",
-              "solution",
-              "quote"
+              "page"
             ],
             "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/component-class-suffix": [
+          "error",
+          {
+            "suffixes": [
+              "Component",
+              "Page"
+            ]
           }
         ],
         "@typescript-eslint/member-ordering": 0,

@@ -10,8 +10,8 @@ import { DOCUMENT } from '@angular/common';
 
 import { Store } from '@ngrx/store';
 
-import { themeActions } from './store/actions';
-import { Constants } from './utils/constants';
+import { themeActions } from '../../store/actions';
+import { Constants } from '../../utils/constants';
 
 const { light } = Constants.theme;
 @Injectable({
