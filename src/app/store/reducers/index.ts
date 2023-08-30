@@ -1,24 +1,15 @@
-import { signal } from '@angular/core';
-import { Constants } from 'src/app/utils/constants';
+import { EnvironmentProviders, makeEnvironmentProviders } from '@angular/core';
 
-import { Action, createReducer, on } from '@ngrx/store';
+import { provideState } from '@ngrx/store';
 
-import { themeActions } from '../actions';
+import { createMemberFeature } from './create-member.reducer';
+import { messageFeature } from './message.reducer';
+import { themeFeature } from './theme.reducer';
 
-const { dark, light } = Constants.theme;
-export const initialTheme = 'saga-green';
-export const keyFeature = 'theme';
-export const globalTheme = signal(initialTheme);
-
-const _themeReducer = createReducer(
-  initialTheme,
-  on(themeActions.lightTheme, () => light),
-  on(themeActions.darkTheme, () => dark)
-);
-
-export function themeReducer(
-  state: string | undefined,
-  action: Action
-): string {
-  return _themeReducer(state, action);
+export function provideRegisterFeature(): EnvironmentProviders {
+  return makeEnvironmentProviders([
+    provideState(createMemberFeature),
+    provideState(messageFeature),
+    provideState(themeFeature)
+  ]);
 }

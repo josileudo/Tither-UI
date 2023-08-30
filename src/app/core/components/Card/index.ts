@@ -1,4 +1,4 @@
-import { CommonModule, CurrencyPipe, NgClass } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -14,20 +14,20 @@ import {
 
 import { ChartModule } from 'primeng/chart';
 
-import { Incoming, Expense, Amount } from '../../model/enum/card.enum';
-import { CardType } from '../../model/interface/card.interface';
+import { Incoming, Expense, Amount } from '../../models/enum/card.enum';
+import { CardType } from '../../models/interface/card.interface';
 import {
   DataChartModel,
   OptionsChartModel
-} from '../../model/interface/chart.interface';
+} from '../../models/interface/chart.interface';
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CurrencyPipe, NgClass, ChartModule, CommonModule],
+  imports: [CurrencyPipe, ChartModule, CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div
-      class="card flex align-items-center justify-content-around scalein animation-duration-1000"
+      class="flex min-w-full flex-row__media align-items-center justify-content-around scalein animation-duration-1000"
     >
       <div class="flex align-items-center gap-3">
         <div [ngClass]="'bg-' + configs()?.color" class="border-circle">
@@ -35,18 +35,25 @@ import {
         </div>
         <div class="py-2 flex flex-column">
           <span class="mb-2 text-sm text-600">{{ cardLabel }}</span>
-          <span class="font-bold text-3xl">{{ cardValue | currency }}</span>
+          <span class="font-bold text-3xl ">{{ cardValue | currency }}</span>
         </div>
       </div>
 
-      <p-chart
-        class="max-w-30-per"
-        type="line"
-        [data]="data"
-        [options]="options"
-      />
+      <div class="max-w-7rem">
+        <p-chart type="line" [data]="data" [options]="options" />
+      </div>
     </div>
-  `
+  `,
+  styles: [
+    `
+      .flex-row__media {
+        @media (max-width: 400px) {
+          flex-direction: column;
+          text-overflow: ellipse;
+        }
+      }
+    `
+  ]
 })
 export class CardComponent implements OnInit, AfterViewInit {
   private changeDetectorRef = inject(ChangeDetectorRef);

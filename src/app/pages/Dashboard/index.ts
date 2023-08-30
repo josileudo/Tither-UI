@@ -6,14 +6,14 @@ import { CardComponent } from '../../core/components/Card/index';
 @Component({
   selector: 'page-dashboard',
   standalone: true,
-  imports: [CardComponent, CommonModule, NgForOf],
+  imports: [CardComponent, CommonModule],
   template: `
-    <div>
+    <div class="relative">
       <span class="font-bold">Dashboard</span>
-      <div class="grid gap-3 mt-3">
+      <div class="m-0 grid max-w-full mt-3 gap-3">
         <app-card
           *ngFor="let card of cardConfig"
-          class="col min-w-max"
+          class="card shadow-1 col"
           [label]="card.title"
           [value]="card.value"
           [type]="card.type"

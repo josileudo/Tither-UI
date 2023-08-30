@@ -1,4 +1,10 @@
-import { createAction } from '@ngrx/store';
+import { createActionGroup, emptyProps } from '@ngrx/store';
 
-export const lightTheme = createAction('[Theme] Light theme');
-export const darkTheme = createAction('[Theme] Dark theme');
+export const ThemeActions = createActionGroup({
+  source: 'Theme',
+  events: {
+    Enter: emptyProps(),
+    'light theme': emptyProps(),
+    'dark theme': emptyProps()
+  }
+});

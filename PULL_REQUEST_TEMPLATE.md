@@ -1,18 +1,18 @@
 ### Description
 
-- Config code formatters, (PrimeNG, PrimeFlex and PrimeIcons) and vitest added
+- Describe here your changes;
 
-### Have a style changes?
+### Changes
 
-Paste your print screen or a gif
+- Describe here what files that was changes;
 
-### PR Checklist
+### Evidences
 
-#### Please check if your PR fulfills the following requirements:
+- Paste your print screen or a gif;
 
-Our project last used karma and jasmine, but now we used to unit test `Vitest`.
+### What kind of change does this PR introduce?
 
-#### What kind of change does this PR introduce?
+Choice your type:
 
 - [ ] Bugfix
 - [x] Feature
@@ -22,18 +22,3 @@ Our project last used karma and jasmine, but now we used to unit test `Vitest`.
 - [ ] CI related changes
 - [ ] Documentation content changes
 - [ ] Other... Please describe:
-
-#### What is the current behavior?
-
-code formatters, unit test framework and style guide
-
-Closes #3
-
-#### What is the new behavior?
-
-EntityServerCommands.add() allows partial entities if non-optimistic, just like EntityCollectionServiceBase.add().
-
-#### Does this PR introduce a breaking change?
-
-- [ ] Yes
-- [x] No

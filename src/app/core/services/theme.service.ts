@@ -7,10 +7,10 @@ import {
   signal
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { ThemeActions } from 'src/app/store/actions/theme.actions';
 
 import { Store } from '@ngrx/store';
 
-import { themeActions } from '../../store/actions';
 import { Constants } from '../../utils/constants';
 
 const { light } = Constants.theme;
@@ -42,8 +42,8 @@ export class ThemeService {
     );
 
     if (this.state() === light)
-      this.storeTheme.dispatch(themeActions.lightTheme());
-    else this.storeTheme.dispatch(themeActions.darkTheme());
+      this.storeTheme.dispatch(ThemeActions.lightTheme());
+    else this.storeTheme.dispatch(ThemeActions.darkTheme());
 
     this.switchTheme();
   }
