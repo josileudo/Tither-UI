@@ -13,6 +13,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 
 import { DropdownMenuComponent } from '../DropodownMenu';
 import { DropdownModel } from '../../models/interface/dropdown.interface';
+import { ClickOutsideDirective } from '../../directives/click-outside.directive';
 
 const { dark, light } = Constants.theme;
 
@@ -27,7 +28,8 @@ const { dark, light } = Constants.theme;
     SplitButtonModule,
     DropdownMenuComponent,
     RouterModule,
-    RouterLink
+    RouterLink,
+    ClickOutsideDirective
   ],
   template: `
     <header class="w-80rem m-auto relative">
@@ -43,12 +45,7 @@ const { dark, light } = Constants.theme;
 
         <div class="flex justify-content-between align-items-center gap-1">
           <div>
-            <p-button
-              styleClass="p-button-rounded p-button-text"
-              icon="pi pi-table"
-              (onClick)="handleOpenMenu()"
-            />
-            <app-dropdown-menu [hidden]="openMenu()" [routes]="routes" />
+            <app-dropdown-menu [routes]="routes" icon="pi-table" />
           </div>
 
           <p-button
