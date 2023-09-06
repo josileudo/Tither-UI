@@ -208,7 +208,8 @@ interface StatusOptionsModel {
             type="submit"
             [disabled]="!formGroup.valid"
             [loading]="buttonConfig().loading"
-            class="font-bold w-18rem lg:w-10rem md:w-10rem sm:w-10rem"
+            styleClass="font-bold"
+            class="w-18rem lg:w-10rem md:w-10rem sm:w-10rem"
           />
         </footer>
       </form>

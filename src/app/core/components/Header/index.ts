@@ -10,10 +10,17 @@ import { select, Store } from '@ngrx/store';
 import { ToolbarModule } from 'primeng/toolbar';
 import { MenuItem } from 'primeng/api';
 import { SplitButtonModule } from 'primeng/splitbutton';
+import {
+  DialogService,
+  DynamicDialogModule,
+  DynamicDialogRef
+} from 'primeng/dynamicdialog';
+import { DialogModule } from 'primeng/dialog';
 
 import { DropdownMenuComponent } from '../DropodownMenu';
 import { DropdownModel } from '../../models/interface/dropdown.interface';
 import { ClickOutsideDirective } from '../../directives/click-outside.directive';
+import { ModalComponent } from '../Modal';
 
 const { dark, light } = Constants.theme;
 
@@ -29,9 +36,13 @@ const { dark, light } = Constants.theme;
     DropdownMenuComponent,
     RouterModule,
     RouterLink,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    DynamicDialogModule,
+    DialogModule,
+    ModalComponent
   ],
   template: `
+    <app-modal [visible]="modalVisible()" />
     <header class="w-80rem m-auto relative">
       <div class="flex justify-content-between align-items-center py-4 px-4">
         <a
@@ -44,6 +55,12 @@ const { dark, light } = Constants.theme;
         </a>
 
         <div class="flex justify-content-between align-items-center gap-1">
+          <p-button
+            styleClass="p-button-rounded p-button-text"
+            icon="pi pi-plus-circle"
+            (click)="showDialog()"
+          />
+
           <div>
             <app-dropdown-menu [routes]="routes" icon="pi-table" />
           </div>
@@ -56,17 +73,21 @@ const { dark, light } = Constants.theme;
         </div>
       </div>
     </header>
-  `
+  `,
+  providers: [DialogService]
 })
 export class HeaderComponent implements OnInit {
   private themeService = inject(ThemeService);
   private storeTheme = inject(Store<{ theme: string }>);
+  private dialogService = inject(DialogService);
 
+  ref: DynamicDialogRef | undefined;
   theme?: string;
   themeKey = 'theme';
 
   check = signal<boolean>(false);
   openMenu = signal<boolean>(true);
+  modalVisible = signal<boolean>(true);
 
   initialTheme = signal<string>(light);
   items!: MenuItem[];
@@ -102,12 +123,27 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  show(): void {
+    this.ref = this.dialogService.open(ModalComponent, {
+      header: 'Register an expense',
+      width: '80%',
+      contentStyle: { overflow: 'auto' },
+      baseZIndex: 10000,
+      maximizable: false,
+      footer: 'Footer test'
+    });
+  }
+
   changeTheme(): void {
     this.check.update(() => !this.check());
 
     this.theme = this.check() ? dark : light;
 
     this.themeService.themeEffect(this.themeKey, this.theme);
+  }
+
+  showDialog(): void {
+    this.modalVisible.update(() => true);
   }
 
   handleOpenMenu(): void {
