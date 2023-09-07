@@ -87,7 +87,7 @@ export class HeaderComponent implements OnInit {
 
   check = signal<boolean>(false);
   openMenu = signal<boolean>(true);
-  modalVisible = signal<boolean>(true);
+  modalVisible = signal<boolean>(false);
 
   initialTheme = signal<string>(light);
   items!: MenuItem[];
@@ -98,7 +98,7 @@ export class HeaderComponent implements OnInit {
       color: 'p-button'
     },
     {
-      label: 'Router 2',
+      label: 'Update',
       icon: 'pi pi-id-card',
       color: 'p-button-info'
     },
